@@ -8,6 +8,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  * @version 1.0.0
  * @link https://lose7.org
  */
+
 class FancyBox_Plugin implements Typecho_Plugin_Interface
 {
     /**
@@ -81,7 +82,7 @@ class FancyBox_Plugin implements Typecho_Plugin_Interface
         if(isset($archive->request->cid)) {
             /** 加载外部jquery */
             if(Helper::options()->plugin('FancyBox')->jq_set == 1) {
-                echo '<script type="text/javascript" src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>';
+                echo '<script type="text/javascript" src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>';
             }
             /** 则加载灯箱js文件 */
             echo '<script type="text/javascript" src="' . Helper::options()->pluginUrl. '/FancyBox/js/jquery.fancybox.min.js"> </script>';
