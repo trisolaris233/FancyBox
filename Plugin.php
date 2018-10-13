@@ -1,14 +1,14 @@
 <?php
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 /**
- * FancyBox: 适用于Typecho1.1的图片灯箱
+ * FancyBox 适用于Typecho1.1的图片灯箱
  * 
  * @package FancyBox
- * @author sunshine+ice
+ * @author sunshineAddIce
  * @version 1.0.0
  * @link https://lose7.org
  */
-class HelloWorld_Plugin implements Typecho_Plugin_Interface
+class FancyBox_Plugin implements Typecho_Plugin_Interface
 {
     /**
      * 激活插件方法,如果激活失败,直接抛出异常
@@ -43,7 +43,7 @@ class HelloWorld_Plugin implements Typecho_Plugin_Interface
     public static function config(Typecho_Widget_Helper_Form $form)
     {
         $jq_set = new Typecho_Widget_Helper_Form_Element_Radio(
-            'jq_set', array('0'=> '自己处理', '1'=> '随着本插件载入'), 1, 'jQuery 来源', '本插件缺省从http://libs.baidu.com/jquery/2.0.0/jquery.min.js加载');
+            'jq_set', array('0'=> _t('自己处理'), '1'=> _t('随着本插件载入')), 1, _t('jQuery 来源'), _t('本插件缺省从http://libs.baidu.com/jquery/2.0.0/jquery.min.js加载'));
         $form->addInput($jq_set);
     }
 
@@ -69,36 +69,23 @@ class HelloWorld_Plugin implements Typecho_Plugin_Interface
     {
     }
 
-    /**
-     * header方法
-     * 
-     * @access public
-     * @return void
-     */
     public static function header($header, Widget_Archive $archive) {
         /** 如果是单篇文章或者独立页面 */
         if(isset($archive->request->cid)) {
             /** 则加载灯箱css文件 */
-            echo '<link rel="stylesheet" type="text/css" href="' . Helper::options()->pluginUrl. '/HelloWorld/css/jquery.fancybox.min.css" />';
+            echo '<link rel="stylesheet" type="text/css" href="' . Helper::options()->pluginUrl. '/FancyBox/css/jquery.fancybox.min.css" />';
         }
     }
-
-    /**
-     * footer方法
-     * 
-     * @access public
-     * @return void
-     */
     public static function footer(Widget_Archive $archive) {
         /** 如果是单篇文章或者独立页面 */
         if(isset($archive->request->cid)) {
             /** 加载外部jquery */
-            if(Helper::options()->plugin('HelloWorld')->jq_set == 1) {
+            if(Helper::options()->plugin('FancyBox')->jq_set == 1) {
                 echo '<script type="text/javascript" src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>';
             }
             /** 则加载灯箱js文件 */
-            echo '<script type="text/javascript" src="' . Helper::options()->pluginUrl. '/HelloWorld/js/jquery.fancybox.min.js"> </script>';
-            echo '<script type="text/javascript" src="' . Helper::options()->pluginUrl. '/HelloWorld/js/lightbox.js"> </script>';
+            echo '<script type="text/javascript" src="' . Helper::options()->pluginUrl. '/FancyBox/js/jquery.fancybox.min.js"> </script>';
+            echo '<script type="text/javascript" src="' . Helper::options()->pluginUrl. '/FancyBox/js/lightbox.js"> </script>';
         }
     }
 
