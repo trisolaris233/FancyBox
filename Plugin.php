@@ -98,7 +98,7 @@ class FancyBox_Plugin implements Typecho_Plugin_Interface
             $js_head = '
             <script>
             $(document).ready(function(){
-                $("img").each(function(){
+                $("#post img").each(function(){
                     $(this).wrap(function(){';
             $custom_parse = trim(Typecho_Common::stripTags($settings->custom_parse));
             $lines = array_filter(preg_split("/(\r|\n|\r\n)/", $custom_parse));

@@ -1,13 +1,21 @@
 # FancyBox
-![](https://lose7.org/usr/uploads/2018/10/3715696930.png)
 
 
+## Introduction
 
+一个简单的typecho图片灯箱插件
 
+## Features
 
+- 自动解析
+- 自定义过滤标签
 
+## Usage
 
-发布页， 在线演示参见我的博客地址： [https://lose7.org/archives/78.html](https://lose7.org/archives/78.html)
+下载本插件到typecho插件目录然后启用即可
+
+## LICENSE
+GPL2.0(懒得改你们就当MIT吧)
 
 
 
